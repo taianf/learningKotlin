@@ -16,7 +16,7 @@ fun Application.registerCustomerRoutes() {
 
 fun Route.customerRouting() {
 
-        route("/customer") {
+    route("/customer") {
         get {
             if (customerStorage.isNotEmpty()) {
                 call.respond(customerStorage)

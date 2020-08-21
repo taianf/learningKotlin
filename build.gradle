@@ -1,9 +1,6 @@
 buildscript {
-    ext.appengine_plugin_version = '2.3.0'
-    ext.appengine_version = '1.9.60'
-    ext.gce_logback_version = '0.117.0-alpha'
-
     repositories {
+        google()
         gradlePluginPortal()
         jcenter()
         mavenCentral()
@@ -11,7 +8,6 @@ buildscript {
         maven { url 'https://kotlin.bintray.com/ktor' }
         maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
     }
-
     dependencies {
         classpath "com.google.cloud.tools:appengine-gradle-plugin:$appengine_plugin_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
@@ -39,6 +35,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
+    google()
     gradlePluginPortal()
     jcenter()
     mavenCentral()
@@ -48,7 +45,6 @@ repositories {
 }
 
 dependencies {
-    implementation "ch.qos.logback:logback-classic:$logback_version"
     implementation "com.google.appengine:appengine:$appengine_version"
     implementation "com.google.cloud:google-cloud-logging-logback:$gce_logback_version"
     implementation "io.ktor:ktor-html-builder:$ktor_version"
@@ -65,6 +61,7 @@ dependencies {
     implementation 'com.google.cloud:google-cloud:+'
     implementation 'jstl:jstl:1.2'
     providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+    testImplementation "ch.qos.logback:logback-classic:$logback_version"
     testImplementation "io.ktor:ktor-server-tests:$ktor_version"
     testImplementation 'com.google.appengine:appengine-api-stubs:+'
     testImplementation 'com.google.appengine:appengine-testing:+'
@@ -90,13 +87,7 @@ appengine {
 test {
     useJUnit()
     testLogging.showStandardStreams = true
-    beforeTest { descriptor ->
-        logger.lifecycle("test: " + descriptor + "  Running")
-    }
-    onOutput { descriptor, event ->
-        logger.lifecycle("test: " + descriptor + ": " + event.message)
-    }
     afterTest { descriptor, result ->
-        logger.lifecycle("test: " + descriptor + ": " + result)
+        logger.lifecycle("" + descriptor + ": " + result)
     }
 }
