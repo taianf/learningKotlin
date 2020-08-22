@@ -24,12 +24,12 @@ hs_err_pid*
 
 # Gradle Files
 .gradle
-gradle/
-build/
-gradlew
-gradlew.bat
+/build/
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
 
-#AppEngine Files
+# AppEngine Files
 appengine-generated/
 out/
 
