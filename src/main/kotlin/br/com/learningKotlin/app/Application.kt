@@ -5,16 +5,14 @@ package br.com.learningKotlin.app
 import br.com.learningKotlin.app.customer.registerCustomerRoutes
 import br.com.learningKotlin.app.defaults.registerDefaultRoutes
 import br.com.learningKotlin.app.order.registerOrderRoutes
-import io.ktor.application.Application
-import io.ktor.application.install
+import io.ktor.application.*
 import io.ktor.features.*
-import io.ktor.http.CacheControl
-import io.ktor.http.ContentType
-import io.ktor.http.content.CachingOptions
-import io.ktor.locations.Locations
-import io.ktor.request.path
-import io.ktor.serialization.json
-import io.ktor.util.date.GMTDate
+import io.ktor.http.*
+import io.ktor.http.content.*
+import io.ktor.locations.*
+import io.ktor.request.*
+import io.ktor.serialization.*
+import io.ktor.util.date.*
 import org.slf4j.event.Level
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)

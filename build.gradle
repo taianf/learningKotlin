@@ -80,6 +80,7 @@ appengine {
         version = 'GCLOUD_CONFIG'
     }
     run {
+        jvmFlags = ['-Xdebug', '-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005']
         automaticRestart = true
     }
 }
@@ -87,7 +88,7 @@ appengine {
 test {
     useJUnit()
     testLogging.showStandardStreams = true
-    afterTest { descriptor, result ->
+    afterTest { final descriptor, final result ->
         logger.lifecycle("" + descriptor + ": " + result)
     }
 }

@@ -1,13 +1,9 @@
 package br.com.learningKotlin.app.order
 
-import io.ktor.application.Application
-import io.ktor.application.call
-import io.ktor.http.HttpStatusCode
-import io.ktor.response.respond
-import io.ktor.response.respondText
-import io.ktor.routing.Route
-import io.ktor.routing.get
-import io.ktor.routing.routing
+import io.ktor.application.*
+import io.ktor.http.*
+import io.ktor.response.*
+import io.ktor.routing.*
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -16,7 +12,7 @@ data class Order(val number: String, val contents: List<OrderItem>)
 @Serializable
 data class OrderItem(val item: String, val amount: Int, val price: Double)
 
-val orderStorage = mutableListOf(
+val orderStorage: MutableList<Order> = mutableListOf(
     Order(
         "2020-04-06-01", listOf(
             OrderItem("Ham Sandwich", 2, 5.50),

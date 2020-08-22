@@ -2,18 +2,12 @@
 
 package br.com.learningKotlin.app.defaults
 
-import io.ktor.application.Application
-import io.ktor.application.call
-import io.ktor.application.install
-import io.ktor.features.StatusPages
-import io.ktor.http.ContentType
-import io.ktor.http.HttpStatusCode
-import io.ktor.http.content.TextContent
-import io.ktor.http.withCharset
-import io.ktor.locations.Location
-import io.ktor.locations.get
-import io.ktor.response.respond
-import io.ktor.response.respondText
+import io.ktor.application.*
+import io.ktor.features.*
+import io.ktor.http.*
+import io.ktor.http.content.*
+import io.ktor.locations.*
+import io.ktor.response.*
 import io.ktor.routing.Route
 import io.ktor.routing.get
 import io.ktor.routing.routing
